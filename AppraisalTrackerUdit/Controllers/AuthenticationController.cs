@@ -17,8 +17,8 @@ namespace AppraisalTrackerUdit.Controllers
         //[AllowAnonymous]
         public ActionResult Index()
         {
-            //List<Authentication> authList = repo.ShowEmployees();
-            return View();
+            List<Authentication> authList = repo.ShowEmployees();
+            return View(authList);
         }
 
         [HttpPost]
@@ -46,5 +46,13 @@ namespace AppraisalTrackerUdit.Controllers
         {
             return View();
         }
+
+        public ActionResult AppraisalPage()
+        {
+            return View();
+
+        }
+
+
     }
 }

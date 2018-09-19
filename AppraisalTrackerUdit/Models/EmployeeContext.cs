@@ -9,7 +9,7 @@ namespace AppraisalTrackerUdit.Models
     public class EmployeeContext : DbContext
     {
         public EmployeeContext()
-            : base(@"server=OXFORDN11\SQLEXPRESS;uid=sa;pwd=info@123!;database=AT1")
+            : base(@"server=OXFORDN12\SQLEXPRESS;uid=sa;pwd=info@123!;database=AT1")
         {
 
         }

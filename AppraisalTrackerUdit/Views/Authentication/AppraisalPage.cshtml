@@ -1,14 +1,10 @@
-﻿@model List<AppraisalTrackerUdit.Models.Authentication>
+﻿@model AppraisalTrackerUdit.Models.Employee
 @{
-//Layout = null;
-
+    Layout = null;
 }
 
 
 <!DOCTYPE html>
-
-
-
 
 
 <html>
@@ -119,52 +115,53 @@
     </style>
 </head>
 <body>
-    
-    <h2>Appraisal Login Form</h2>
-
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-    <div id="id01" class="modal">
-        
-        <form class="modal-content animate" action="/action_page.php">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="~/images/employee.png" alt="Avatar" class="avatar">
-            </div>
-
+    <h2>Appraisal Form</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
             <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-               
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label for="EmployeeId"><b>Employee Id</b></label>
+               @* <label for="EmployeeId"><b>@emp</b></label>*@
 
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
+               @* <input type="text" placeholder="" name="empid" required>*@
+
+                <label for="EmployeeName"><b>Employee Name</b></label>
+                <input type="text" placeholder="" name="empname" required>
+
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>EmployeeID</th>
+                        <th>EmployeeName</th>
+                       
+                    </tr>                     
+                    @foreach (var emp in Model)
+                    {
+                        <tr>
+                            <td>@emp.EmpId</td>
+                            <td>@emp.EmpName</td>                            
+                        </tr>
+                    }
+                </table>
+
+                <br />
+                <br />
+                <select>
+                    <option value="Select">Select</option>
+
+                    <option value="Development">Development</option>
+                    <option value="Operational">Operational</option>
+
+                </select>
+
+
+
+
             </div>
 
-            @*<div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
-                    </div>
-                </form>*@
+        }
+
 
     </div>
-
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
 </body>
 </html>
-
